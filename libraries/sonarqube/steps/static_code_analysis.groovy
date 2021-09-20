@@ -6,11 +6,12 @@ void call(){
         String serverName = config.server_name ?: "My SonarQube Server"
         Boolean enforceQualityGate = config.containsKey("enforce_quality_gate") ?
                 config.enforce_quality_gate : true
+        String projectKey = config.sonarqube_projectKey
         node {
             def scannerHome = tool(scannerVersion)
             withSonarQubeEnv(serverName) { 
                 //sh "${scannerHome}/bin/sonar-scanner"
-                sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=config.sonarqube_projectKey -Dsonar.java.binaries=target/classes"
+                sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${projectKey} -Dsonar.java.binaries=target/classes"
             }
         }
         timeout(time: 1, unit: 'HOURS') {
