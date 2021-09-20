@@ -5,6 +5,8 @@ void call(){
             //sh "git clone https://github.com/pythonkazuma/Jenkins_Practical_Guide_3rd_Edition.git"
             //sh "cd Jenkins_Practical_Guide_3rd_Edition"
             //sh "gradle clean build"
+            sh "pwd"
+            sh "ls"
             sh "gradle build"
         }
     }
