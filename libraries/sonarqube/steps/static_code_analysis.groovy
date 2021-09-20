@@ -8,7 +8,8 @@ void call(){
 //             }
 //         }
         // parse configuration 
-        String scannerVersion = config.scanner_version ?: "SonarScanner 4.0"
+        //String scannerVersion = config.scanner_version ?: "SonarScanner 4.0"
+        String scannerVersion = config.scanner_version ?: "SonarScanner 4.0.0.1744"
         String serverName = config.server_name ?: "My SonarQube Server"
         Boolean enforceQualityGate = config.containsKey("enforce_quality_gate") ?
                 config.enforce_quality_gate : true
