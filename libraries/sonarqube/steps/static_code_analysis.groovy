@@ -16,7 +16,7 @@ void call(){
             def scannerHome = tool(scannerVersion)
             withSonarQubeEnv(serverName) { 
                 //sh "${scannerHome}/bin/sonar-scanner"
-                sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=simple-maven-app"
+                sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=simple-maven-app -Dsonar.java.binaries=target/classes"
             }
         }
         timeout(time: 1, unit: 'HOURS') {
